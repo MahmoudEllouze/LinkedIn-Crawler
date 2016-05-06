@@ -1,0 +1,92 @@
+div {
+    display: block;
+}
+    .login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: #222;
+    text-align: center;
+    color: #fff;
+    padding: 3em;
+}
+body {
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #222222;
+    background-color: #943030;
+}
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: #222;
+    text-align: center;
+    color: #fff;
+    padding: 3em;
+}
+.row {
+    margin-left: -.9375rem;
+    margin-right: -.9375rem;
+}
+img {
+    vertical-align: middle;
+}
+.login-page h1 {
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.login-page .form-content {
+    padding: 40px 0;
+}
+.login-page .form-group {
+    padding: 8px 0;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.login-page .input-underline {
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    border-bottom: 2px solid hsla(0,0%,100%,.5);
+    color: #fff;
+    border-radius: 0;
+}
+
+.login-page .rounded-btn {
+    border-radius: 50px;
+    color: hsla(0,0%,100%,.8);
+    background: #222;
+    border: 2px solid hsla(0,0%,100%,.8);
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 25px;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}

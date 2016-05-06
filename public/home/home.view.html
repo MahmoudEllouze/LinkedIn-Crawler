@@ -1,0 +1,233 @@
+<head>
+  <link rel="stylesheet" href="home/home.css">
+</head>
+<topnav>
+    <nav class="navbar navbar-dark bg-inverse navbar-fixed-top topnav">
+       <a class="navbar-brand">CV research plateform</a>
+   </nav>
+</topnav>
+<div id="wrapper">
+
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#/">
+                    Start Bootstrap
+                </a>
+            </li>
+            <li>
+                <a ng-click="showingHome=true;showingCreation=false;showingExpand=false;showingSearch=false;">Home</a>
+            </li>
+            <li>
+                <a ng-click="showingCreation=true;showingHome=false;showingExpand=false;showingSearch=false;">Create a network</a>
+            </li>
+            <li>
+                <a ng-click="showingExpand=true;showingCreation=false;showingHome=false;showingSearch=false;">Expand the network</a>
+            </li>
+            <li>
+                <a >Update the network</a>
+            </li>
+            <li>
+                <a ng-click="showingSearch=true;showingCreation=false;showingExpand=false;showingHome=false;">Search a profile</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <div class="absolute">
+        <div class="home" ng-show=showingHome>
+
+        
+            <h1>Hi {{vm.user.firstName}} {{vm.user.linkedInAccount}} !</h1>
+            <h2>welcome to the version 0.2.0 of the plateform</h2>
+            <img class="user-avatar" src="home/mahm1.JPG" width="800px" height="400" >
+            <p>You're logged in my friend!!</p>
+            <h3>All registered users:</h3>
+            <ul>
+                <li ng-repeat="user in vm.allUsers">
+                    {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.linkedInAccount}})
+                    - <a href="#" ng-click="vm.deleteUser(user.id)">Delete</a>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p><a href="#/login" class="btn btn-primary">Logout</a></p>
+        </div>
+        <div class= "create" ng-show=showingCreation ng-init="profileshowing = false">
+            <h1>Creating your network</h1>
+            <div>By clicking on the "Start the creation" button, the application will begin the operation to extract the data all the profiles that are connected to you.</p>
+            This operation may take some time.</p></div>
+            <button ng-click="StartNetworkCreation();profileshowing=true" class="btn rounded-btn">Start the creation</button>
+
+            
+            <div ng-show=profileshowing >
+                The extracting phase is :  {{ServerResultmessage}} </P>
+                The number of extracted profile is : {{ServerResultcounter}} </p>
+                The profile that is crawled right now is : {{ServerResultContact}} </p>
+                The total number of contact is : {{totalContact}}
+
+                <div class="meter">
+            <span style="width: {{percentage}}%"></span>
+        </div>
+            </div>
+            <p>{{ serverdata2 }}</p>
+        </div>
+        <div class= "expanding" ng-show=showingExpand>
+
+            <h1>Expanding your network</h1>
+            <P>Choose the profession on wich you wish to expand yor network : <input type="text" ng:model="profession"></P>
+            <p>For more options, choose the choose one these courses. 
+                <select name="singleSelect" ng-model="data.singleSelect">
+                  <option value="All">All</option>
+                  <option value="Computer">Computer Science</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Medical">Medical</option>
+              </select>
+          </p>
+
+          <button ng-click="StartNetworkExpand()" class="btn rounded-btn">Expand !</button>
+          <p>The number of the sent invitations is : {{numbaro}} </p>
+          <p>The profiles from wich we send the invitations are : </p>
+          <div ng-repeat="profile in expandCurrentProfile track by $index | limitTo: 5 | orderBy:'time':true">
+  {{profile}}
+</div>
+      </div>
+      <div class= "Searching" ng-show=showingSearch>
+
+          <h1>Searching a profile</h1>
+          <div >
+            E-mail : <input type = "text" ng-model ="profile.searchProfile.email"></input></p>
+            Identifier : <input type = "text" ng-model ="profile.searchProfile.identifier"></input></p>
+            <table class="table">
+                <tr>
+
+                    <th>Language</th>
+
+                </tr>
+                <tr ng:repeat="item in profile.language.lang">
+                    <td><input type="text" ng:model="item.name"class="input-small"></td>           
+
+
+                    <td>
+                        [<a href ng:click="removeProfileItem('language',$index)">X</a>]
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href ng:click="addProfileItem('language')" class="btn btn-small">Add language</a></td>
+
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+
+                    <th>School</th>
+                    <th>Duration</th>
+                    
+
+                </tr>
+                <tr ng:repeat="item in profile.education.educ">
+                    <td><input type="text" ng:model="item.name"class="input-small"></td>           
+                    <td><input type="number" ng:model="item.duration" ng:required class="input-mini"></td>
+                   
+
+                    <td>
+                        [<a href ng:click="removeProfileItem('education',$index)">X</a>]
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href ng:click="addProfileItem('education')" class="btn btn-small">Add school</a></td>
+
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+
+                    <th>Skills</th>
+
+                </tr>
+                <tr ng:repeat="item in profile.skill.sk">
+                <td><input type="text" id="default" ng:model="item.name" list="languages" placeholder="e.g. JavaScript">
+
+                      <datalist id="languages">
+                         <option ng:repeat="item in searchMySkill track by $index" value="{{ item }}">
+                         </datalist></td> 
+                         <td><input type="number" ng:model="item.number"class="input-small"></td>           
+
+
+                         <td>
+                            [<a href ng:click="removeProfileItem('skill',$index)">X</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href ng:click="addProfileItem('skill')" class="btn btn-small">Add skill</a></td>
+
+                    </tr>
+                </table>
+                <table class="table">
+                    <tr>
+
+                        <th>Position</th>
+                        <th>Company</th>
+
+                    </tr>
+                    <tr ng:repeat="item in profile.experience.exp">
+                        <td><input type="text" list="jobs" ng:model="item.position"class="input-small">
+                        <datalist id="jobs">
+                         <option ng:repeat="item in searchMyExperience track by $index" value="{{ item }}">
+                         </datalist></td> 
+                        <td><input type="text" ng:model="item.company"class="input-small"></td>           
+
+
+                        <td>
+                            [<a href ng:click="removeProfileItem('experience',$index)">X</a>]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href ng:click="addProfileItem('exprience')" class="btn btn-small">Add position or company</a></td>
+
+                    </tr>
+                </table>
+
+                <button ng-click = "searchProfile()" class="btn rounded-btn">Search the profile</button>
+
+                <h1>Result</h1>
+                <table class="table">
+                    <tr>
+
+                        <th>Identifier</th>
+
+                    </tr>
+                    <tr ng:repeat="item in searchResponse">
+                        <td>{{item.identifier}}</td> 
+                        <td>{{item.email}}</td> 
+                        <td> <a ng-href={{item.url}}>{{item.url}}</a></td>
+
+
+
+                    </tr>
+                    <tr>
+
+
+                    </tr>
+                </table>
+
+            </div>
+        
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+

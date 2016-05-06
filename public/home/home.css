@@ -1,0 +1,254 @@
+ div.absolute {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+
+
+}
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 20%;
+    top : 0px;
+    width: 0;
+    height: 100%;
+    margin-left: -20%;
+    overflow-y: auto;
+    background: #222;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: blue;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+ .rounded-btn {
+    border-radius: 50px;
+    color: hsla(0,0%,100%,.8);
+    background: #222;
+    border: 2px solid hsla(0,0%,100%,.8);
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 25px;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+}
+.topnav {
+	position : relative;
+    border-radius: 0;
+    background-color: #222;
+    padding: 10px;
+    z-index: 0;
+    top : 0px;
+}
+.navbar-fixed-bottom, .navbar-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar-brand {
+    float: left;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+    color: #fff;
+}
+
+
+        .meter { 
+            height: 20px;  /* Can be anything */
+            position: relative;
+            margin: 60px 0 20px 0; /* Just for demo spacing */
+            background: #555;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            padding: 10px;
+            -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+            -moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+            box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+        }
+        .meter > span {
+            display: block;
+            height: 100%;
+               -webkit-border-top-right-radius: 8px;
+            -webkit-border-bottom-right-radius: 8px;
+                   -moz-border-radius-topright: 8px;
+                -moz-border-radius-bottomright: 8px;
+                       border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                -webkit-border-top-left-radius: 20px;
+             -webkit-border-bottom-left-radius: 20px;
+                    -moz-border-radius-topleft: 20px;
+                 -moz-border-radius-bottomleft: 20px;
+                        border-top-left-radius: 20px;
+                     border-bottom-left-radius: 20px;
+            background-color: rgb(43,194,83);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0, rgb(43,194,83)),
+              color-stop(1, rgb(84,240,84))
+             );
+            background-image: -moz-linear-gradient(
+              center bottom,
+              rgb(43,194,83) 37%,
+              rgb(84,240,84) 69%
+             );
+            -webkit-box-shadow: 
+              inset 0 2px 9px  rgba(255,255,255,0.3),
+              inset 0 -2px 6px rgba(0,0,0,0.4);
+            -moz-box-shadow: 
+              inset 0 2px 9px  rgba(255,255,255,0.3),
+              inset 0 -2px 6px rgba(0,0,0,0.4);
+            box-shadow: 
+              inset 0 2px 9px  rgba(255,255,255,0.3),
+              inset 0 -2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .meter > span:after, .animate > span > span {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background-image: 
+               -webkit-gradient(linear, 0 0, 100% 100%, 
+                  color-stop(.25, rgba(255, 255, 255, .2)), 
+                  color-stop(.25, transparent), color-stop(.5, transparent), 
+                  color-stop(.5, rgba(255, 255, 255, .2)), 
+                  color-stop(.75, rgba(255, 255, 255, .2)), 
+                  color-stop(.75, transparent), to(transparent)
+               );
+            background-image: 
+                -moz-linear-gradient(
+                  -45deg, 
+                  rgba(255, 255, 255, .2) 25%, 
+                  transparent 25%, 
+                  transparent 50%, 
+                  rgba(255, 255, 255, .2) 50%, 
+                  rgba(255, 255, 255, .2) 75%, 
+                  transparent 75%, 
+                  transparent
+               );
+            z-index: 1;
+            -webkit-background-size: 50px 50px;
+            -moz-background-size: 50px 50px;
+            -webkit-animation: move 2s linear infinite;
+               -webkit-border-top-right-radius: 8px;
+            -webkit-border-bottom-right-radius: 8px;
+                   -moz-border-radius-topright: 8px;
+                -moz-border-radius-bottomright: 8px;
+                       border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                -webkit-border-top-left-radius: 20px;
+             -webkit-border-bottom-left-radius: 20px;
+                    -moz-border-radius-topleft: 20px;
+                 -moz-border-radius-bottomleft: 20px;
+                        border-top-left-radius: 20px;
+                     border-bottom-left-radius: 20px;
+            overflow: hidden;
+        }
+        @-webkit-keyframes move {
+            0% {
+               background-position: 0 0;
+            }
+            100% {
+               background-position: 50px 50px;
+            }
+        }
+        
